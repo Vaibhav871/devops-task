@@ -13,6 +13,5 @@ RUN npm install
 # Copy the rest of the application files into the container
 COPY . .
 
-
 # Start the application
 CMD ["npm", "start"]
