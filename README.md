@@ -75,7 +75,7 @@ The `docker-compose.yml` defines services for the frontend, backend, and MongoDB
   Simplifies running and testing containerized apps in a production-like environment locally.
 
 ### Automation Script
-The `deploy.sh` script automates building, tagging, and pushing Docker images to Docker Hub, updating the Compose file, and starting services.
+The `script.sh` script automates building, tagging, and pushing Docker images to Docker Hub, updating the Compose file, and starting services.
 
 ---
 
