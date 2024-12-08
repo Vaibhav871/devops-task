@@ -1,3 +1,4 @@
+# Stage 1 as Build 
 FROM node:16 AS build
 
 # Set the working directory inside the container
