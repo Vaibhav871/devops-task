@@ -41,6 +41,17 @@ git clone https://github.com/Vaibhav871/devops-task.git
 cd project
 ```
 
+# Docker Images
+
+## Frontend Image
+```bash
+docker pull vaibhav871/frontend:1049d98
+```
+## backend Image
+```bash
+docker pull vaibhav871/backend:1049d98
+```
+
 ### 2. Build and Deploy
 Run the shell script to automate the build and deployment process:
 ```./script.sh ```
