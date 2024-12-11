@@ -66,9 +66,10 @@ run_docker_compose() {
 
 main() {
     build_images || { printf "Image building failed.\n" >&2; exit 1; }
-    tag_and_push_images || { printf "Image tagging/pushing failed.\n" >&2; exit 1; }
+    
     update_docker_compose || { printf "Docker Compose update failed.\n" >&2; exit 1; }
     run_docker_compose || { printf "Docker Compose run failed.\n" >&2; exit 1; }
+    tag_and_push_images || { printf "Image tagging/pushing failed.\n" >&2; exit 1; }
 }
 
 # Entry point
