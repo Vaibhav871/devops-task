@@ -1,29 +1,62 @@
+# name: project_deployment
+
+# on:
+#     workflow_dispatch:
+#     push:
+#         branches:
+#             - master
+#     pull_request:
+#         branches:
+#             - master
+# jobs:
+#     docker_image:
+#         runs_on: ubuntu-latest
+#         steps:
+#             - name: backend
+#               uses: actions/checkout@v2
+#               run: |
+#                docker build -t vaibhav871/frontend:v0.1 ./frontend
+#                echo "docker frontend created"
+#     docker_push:
+#         runs_on: ubuntu-latest
+#         steps:
+#             - name: backend
+#               uses: actions/checkout@v2
+            
+#               run: |
+#               docker build -t vaibhav871/backend:v0.1 ./backend
+#               echo "docker backend created"
+    
 name: project_deployment
 
 on:
-    workflow_dispatch:
-    push:
-        branches:
-            - master
-    pull_request:
-        branches:
-            - master
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
 jobs:
-    docker_image:
-        runs_on: ubuntu-latest
-        steps:
-            - name: backend
-              uses: actions/checkout@v2
-              run: |
-               docker build -t vaibhav871/frontend:v0.1 ./frontend
-               echo "docker frontend created"
-    docker_push:
-        runs_on: ubuntu-latest
-        steps:
-            - name: backend
-              uses: actions/checkout@v2
-            
-              run: |
-              docker build -t vaibhav871/backend:v0.1 ./backend
-              echo "docker backend created"
-    
+  docker_image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build Frontend Docker Image
+        run: |
+          docker build -t vaibhav871/frontend:v0.1 ./frontend
+          echo "docker frontend created"
+
+  docker_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t vaibhav871/backend:v0.1 ./backend
+          echo "docker backend created"
