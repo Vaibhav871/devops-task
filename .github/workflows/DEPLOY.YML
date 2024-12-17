@@ -12,13 +12,18 @@ jobs:
     docker_image:
         runs_on: ubuntu-latest
         steps:
-            uses: actions/checkout@v2
-            run: docker build -t vaibhav871/frontend:v0.1 ./frontend
-            run: echo "docker frontend created"
+            - name: backend
+              uses: actions/checkout@v2
+              run: |
+               docker build -t vaibhav871/frontend:v0.1 ./frontend
+               echo "docker frontend created"
     docker_push:
         runs_on: ubuntu-latest
         steps:
-            uses: actions/checkout@v2
-            run: docker build -t vaibhav871/backend:v0.1 ./backend
-            run: echo "docker backend created"
+            - name: backend
+              uses: actions/checkout@v2
+            
+              run: |
+              docker build -t vaibhav871/backend:v0.1 ./backend
+              echo "docker backend created"
     
