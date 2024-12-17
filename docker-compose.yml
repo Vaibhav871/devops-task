@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: vaibhav871/frontend:1049d98
+    image: vaibhav871/frontend:6195ed1
     ports:
       - "80:80"
     depends_on:
@@ -10,7 +10,7 @@ services:
     environment:
       - REACT_APP_API_URL=http://localhost:5000
   backend:
-    image: vaibhav871/backend:1049d98
+    image: vaibhav871/backend:6195ed1
     ports:
       - "5000:5000"
     environment:
