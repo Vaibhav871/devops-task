@@ -9,11 +9,6 @@ on:
         branches:
             - master
 jobs:
-    # build:
-    #     runs_on: ubuntu-latest
-    #     steps:
-    #         uses: actions/checkout@v2
-    #         run: npm run
     docker_image:
         runs_on: ubuntu-latest
         steps:
