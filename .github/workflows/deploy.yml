@@ -53,5 +53,3 @@ jobs:
         run: |
           docker build -t vaibhav871/backend:v0.1 ./backend
           echo "docker backend created"
-  docker_login:
-    runs-on: 
