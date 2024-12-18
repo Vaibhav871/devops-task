@@ -22,5 +22,5 @@ jobs:
 
     - name: Building docker images  
       run: |
-        docker buildx build -t frontend-img ./frontend .
+        docker buildx build -t frontend-img ./frontend
         echo "Image build"
