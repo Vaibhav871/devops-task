@@ -49,14 +49,9 @@ jobs:
         run: |
           docker build -t vaibhav871/frontend:v0.1 ./frontend
           echo "docker frontend created"
-
-  docker_push:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
       - name: Build Backend Docker Image
         run: |
           docker build -t vaibhav871/backend:v0.1 ./backend
           echo "docker backend created"
+  docker_login:
+    runs-on: 
