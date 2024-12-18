@@ -12,9 +12,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+  
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -32,11 +33,16 @@ jobs:
     - name: Build project
       run: npm run build
     
-    - name: Build & push Docker image
-      uses: mr-smithers-excellent/docker-build-push@v6
+    - name: Log in to DockerHub
+      uses: docker/login-action@v2
       with:
-        image: vaibhav871/backend
-        tags: 6195ed1
-        dockerfile: ./frontend
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "docker login sucessfull . "
+        
+    - name: build image
+      run: |
+          docker run -t frontend-application ./frontend
+          echo " frontend image is created. "
+      
+      
