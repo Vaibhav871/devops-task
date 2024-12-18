@@ -41,8 +41,13 @@ jobs:
         run: echo "docker login sucessfull . "
         
     - name: build image
-      run: |
-          docker run -t frontend-application ./frontend
-          echo " frontend image is created. "
+      uses: docker/build-push-action@v6
+
+    - name: Building docker images  
+      with:
+        context: ./frontend
+        run: |
+          docker build -t frontend-img .
+          echo "Image build" 
       
       
